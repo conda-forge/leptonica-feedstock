@@ -39,7 +39,7 @@ requirements:
     - jpeg
     - openjpeg
     - xz
-    - giflab
+    - giflib
 
 test:
   commands:
