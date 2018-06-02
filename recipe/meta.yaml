@@ -30,6 +30,7 @@ requirements:
     - libtiff
     - jpeg
     - openjpeg
+    - xz
     - giflib
   run:
     - libwebp 
