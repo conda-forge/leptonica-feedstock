@@ -14,6 +14,8 @@ source:
 build:
   number: 2
   skip: True  # [win]
+  run_exports:
+    - {{ pin_subpackage("leptonica", max_pin="x.x") }}
 
 requirements:
   build:
