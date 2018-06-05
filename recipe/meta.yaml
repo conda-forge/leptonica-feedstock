@@ -12,7 +12,7 @@ source:
   patches: c74e712799890a600814d4d4970f8f03be254b0a.patch # fixes openjpeg
 
 build:
-  number: 3
+  number: 4
   skip: True  # [win]
   run_exports:
     - {{ pin_subpackage("leptonica", max_pin="x.x") }}
