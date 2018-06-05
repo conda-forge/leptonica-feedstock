@@ -12,7 +12,7 @@ source:
   patches: c74e712799890a600814d4d4970f8f03be254b0a.patch # fixes openjpeg
 
 build:
-  number: 2
+  number: 3
   skip: True  # [win]
 
 requirements:
@@ -24,7 +24,7 @@ requirements:
     - m4
     - pkg-config
   host:
-    - libwebp 
+    - libwebp
     - zlib
     - libpng
     - libtiff
@@ -33,7 +33,7 @@ requirements:
     - xz
     - giflib
   run:
-    - libwebp 
+    - libwebp
     - zlib
     - libpng
     - libtiff
@@ -55,8 +55,8 @@ about:
   license_file: leptonica-license.txt
   summary: 'Useful for image processing and image analysis applications'
   description: |
-    Leptonica is a pedagogically-oriented open source site containing 
-    software that is broadly useful for image processing and image 
+    Leptonica is a pedagogically-oriented open source site containing
+    software that is broadly useful for image processing and image
     analysis applications.
   doc_url: http://www.leptonica.org/
   dev_url: https://github.com/DanBloomberg/leptonica
