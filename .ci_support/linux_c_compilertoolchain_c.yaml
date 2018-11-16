@@ -13,11 +13,11 @@ giflib:
 jpeg:
 - '9'
 libpng:
-- 1.6.34
+- 1.6.35
 libtiff:
 - 4.0.9
 libwebp:
-- '0.5'
+- 1.0.0
 openjpeg:
 - '2.3'
 pin_run_as_build:
