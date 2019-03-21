@@ -1,6 +1,6 @@
 {% set name = "leptonica" %}
-{% set version = "1.76.0" %}
-{% set sha256 = "ff98ffef6103cda0e400676f81113a8157569ac0f453c6e03a1a27b305ba25a7" %}
+{% set version = "1.78.0" %}
+{% set sha256 = "f8ac4d93cc76b524c2c81d27850bfc342e68b91368aa7a1f7d69e34ce13adbb4" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   patches: c74e712799890a600814d4d4970f8f03be254b0a.patch # fixes openjpeg
 
 build:
-  number: 1005
+  number: 0
   skip: True  # [win]
   run_exports:
     - {{ pin_subpackage("leptonica", max_pin="x.x") }}
