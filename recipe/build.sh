@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-./autobuild
+./autogen.sh
 ./configure --prefix=$PREFIX
 make -j$CPU_COUNT
 make install
