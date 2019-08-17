@@ -52,7 +52,11 @@ about:
   license: BSD 2-Clause
   license_family: BSD
   license_file: leptonica-license.txt
-  summary: Leptonica image processing library
+  summary: 'Useful for image processing and image analysis applications'
+  description: |
+    Leptonica is a pedagogically-oriented open source site containing	
+    software that is broadly useful for image processing and image	
+    analysis applications.
   doc_url: http://www.leptonica.org/
   dev_url: https://github.com/DanBloomberg/leptonica
 
