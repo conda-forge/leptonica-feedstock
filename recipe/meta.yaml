@@ -1,54 +1,51 @@
 {% set name = "leptonica" %}
-{% set version = "1.76.0" %}
-{% set sha256 = "ff98ffef6103cda0e400676f81113a8157569ac0f453c6e03a1a27b305ba25a7" %}
+{% set version = "1.78.0" %}
+{% set sha256 = "e2ed2e81e7a22ddf45d2c05f0bc8b9ae7450545d995bfe28517ba408d14a5a88" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/DanBloomberg/{{ name }}/archive/{{ version }}.tar.gz
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/DanBloomberg/{{ name }}/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches: c74e712799890a600814d4d4970f8f03be254b0a.patch # fixes openjpeg
+  patches:
+    - cmake.patch  # [win]
 
 build:
-  number: 1005
-  skip: True  # [win]
+  number: 0
+  skip: True  # [win and vc<14]
   run_exports:
-    - {{ pin_subpackage("leptonica", max_pin="x.x") }}
+    - {{ pin_subpackage(name, max_pin='x.x') }}
+
+# TODO: conda-forge giflib missing headers on windows?
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - autoconf
-    - automake
-    - libtool
-    - m4
-    - pkg-config
+    - autoconf  # [not win]
+    - automake  # [not win]
+    - libtool  # [not win]
+    - m4  # [not win]
+    - pkg-config  # [not win]
+    - cmake  # [win]
   host:
-    - libwebp
-    - zlib
+    - giflib  # [not win]
+    - jpeg
     - libpng
     - libtiff
-    - jpeg
+    - libwebp
     - openjpeg
     - xz
-    - giflib
+    - zlib
   run:
+    # libwebp doesn't have run_exports yet (on version in conda-forge-pinning)
     - libwebp
-    - zlib
-    - libpng
-    - libtiff
-    - jpeg
-    - openjpeg
-    - xz
-    - giflib
 
 test:
   commands:
-    - convertfilestopdf --help 2>&1 | grep 'resolution' &> /dev/null
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
+    - convertfilestopdf --help 2>&1 | grep 'resolution' &> /dev/null  # [not win]
 
 about:
   home: https://github.com/DanBloomberg/leptonica
@@ -57,8 +54,8 @@ about:
   license_file: leptonica-license.txt
   summary: 'Useful for image processing and image analysis applications'
   description: |
-    Leptonica is a pedagogically-oriented open source site containing
-    software that is broadly useful for image processing and image
+    Leptonica is a pedagogically-oriented open source site containing	
+    software that is broadly useful for image processing and image	
     analysis applications.
   doc_url: http://www.leptonica.org/
   dev_url: https://github.com/DanBloomberg/leptonica
