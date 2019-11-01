@@ -1,9 +1,21 @@
+BUILD:
+- aarch64-conda_cos7-linux-gnu
 c_compiler:
-- vs2015
+- gcc
+c_compiler_version:
+- '7'
+cdt_arch:
+- aarch64
+cdt_name:
+- cos7
 channel_sources:
-- conda-forge,defaults
+- conda-forge,c4aarch64,defaults
 channel_targets:
 - conda-forge main
+docker_image:
+- condaforge/linux-anvil-aarch64
+giflib:
+- 5.1.7
 jpeg:
 - '9'
 libpng:
@@ -25,18 +37,11 @@ pin_run_as_build:
     max_pin: x.x
   openjpeg:
     max_pin: x.x
-  vc:
-    max_pin: x
   xz:
     max_pin: x.x
   zlib:
     max_pin: x.x
-vc:
-- '14'
 xz:
 - '5.2'
-zip_keys:
-- - vc
-  - c_compiler
 zlib:
 - '1.2'
