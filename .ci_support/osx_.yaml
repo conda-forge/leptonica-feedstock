@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 giflib:
-- 5.1.7
+- '5.2'
 jpeg:
 - '9'
 libpng:
