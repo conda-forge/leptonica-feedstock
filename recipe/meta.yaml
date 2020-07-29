@@ -1,6 +1,6 @@
 {% set name = "leptonica" %}
-{% set version = "1.78.0" %}
-{% set sha256 = "e2ed2e81e7a22ddf45d2c05f0bc8b9ae7450545d995bfe28517ba408d14a5a88" %}
+{% set version = "1.80.0" %}
+{% set sha256 = "ec9c46c2aefbb960fb6a6b7f800fe39de48343437b6ce08e30a8d9688ed14ba4" %}
 
 package:
   name: {{ name|lower }}
@@ -14,8 +14,8 @@ source:
     - cmake.patch  # [win]
 
 build:
-  number: 2
-  skip: True  # [win and vc<14]
+  number: 0
+  skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
@@ -52,7 +52,7 @@ about:
   license: BSD 2-Clause
   license_family: BSD
   license_file: leptonica-license.txt
-  summary: 'Useful for image processing and image analysis applications'
+  summary: Useful for image processing and image analysis applications
   description: |
     Leptonica is a pedagogically-oriented open source site containing	
     software that is broadly useful for image processing and image	
