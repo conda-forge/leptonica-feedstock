@@ -3,7 +3,7 @@ About leptonica
 
 Home: https://github.com/DanBloomberg/leptonica
 
-Package license: BSD 2-Clause
+Package license: BSD-2-Clause
 
 Feedstock license: BSD-3-Clause
 
