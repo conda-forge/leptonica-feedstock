@@ -26,6 +26,7 @@ requirements:
     - {{ compiler('c') }}
     - autoconf  # [not win]
     - automake  # [not win]
+    - make  # [not win]
     - libtool  # [not win]
     - m4  # [not win]
     - pkg-config  # [not win]
