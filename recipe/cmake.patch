@@ -17,12 +17,12 @@ index 342c37d..2061041 100644
  # ======================================================
  
  # Provide the include directories to the caller
--set(Leptonica_INCLUDE_DIRS "@INCLUDE_DIR@")
+-set(Leptonica_INCLUDE_DIRS      "@INCLUDE_DIR@")
 +set(Leptonica_INCLUDE_DIRS "${_leptonica_install_prefix}/include/leptonica/")
  
  # ====================================================================
  # Link libraries:
  # ====================================================================
  
--set(Leptonica_LIBRARIES leptonica)
+-set(Leptonica_LIBRARIES         @leptonica_NAME@)
 +set(Leptonica_LIBRARIES "${_leptonica_install_prefix}/lib/leptonica-@VERSION_PLAIN@.lib")
