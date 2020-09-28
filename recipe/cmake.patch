@@ -13,11 +13,11 @@ index 342c37d..2061041 100644
  
  # ======================================================
  #  Version variables:
-@@ -36,10 +38,10 @@ SET(Leptonica_VERSION_PATCH     @VERSION_PATCH@)
+@@ -36,10 +38,10 @@
  # ======================================================
  
  # Provide the include directories to the caller
--set(Leptonica_INCLUDE_DIRS      "@INCLUDE_DIR@")
+-set(Leptonica_INCLUDE_DIRS "@INCLUDE_DIR@")
 +set(Leptonica_INCLUDE_DIRS "${_leptonica_install_prefix}/include/leptonica/")
  
  # ====================================================================
