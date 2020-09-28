@@ -153,4 +153,5 @@ Feedstock Maintainers
 =====================
 
 * [@CurtLH](https://github.com/CurtLH/)
+* [@xylar](https://github.com/xylar/)
 
