@@ -5,9 +5,13 @@ Home: https://github.com/DanBloomberg/leptonica
 
 Package license: BSD-2-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/leptonica-feedstock/blob/master/LICENSE.txt)
 
 Summary: Useful for image processing and image analysis applications
+
+Development: https://github.com/DanBloomberg/leptonica
+
+Documentation: http://www.leptonica.org/
 
 Leptonica is a pedagogically-oriented open source site containing
 software that is broadly useful for image processing and image
