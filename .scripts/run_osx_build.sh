@@ -17,7 +17,7 @@ bash $MINIFORGE_FILE -b
 
 BUILD_CMD=build
 
-source ${HOME}/miniforge3/etc/profile.d/conda.sh
+source ${MINIFORGE_HOME}/etc/profile.d/conda.sh
 conda activate base
 
 echo -e "\n\nInstalling conda-forge-ci-setup=3 and conda-build."
@@ -27,11 +27,18 @@ conda install -n base --quiet --yes "conda-forge-ci-setup=3" conda-build pip ${G
 
 echo -e "\n\nSetting up the condarc and mangling the compiler."
 setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
-mangle_compiler ./ ./recipe .ci_support/${CONFIG}.yaml
 
-echo -e "\n\nMangling homebrew in the CI to avoid conflicts."
-/usr/bin/sudo mangle_homebrew
-/usr/bin/sudo -k
+if [[ "${CI:-}" != "" ]]; then
+  mangle_compiler ./ ./recipe .ci_support/${CONFIG}.yaml
+fi
+
+if [[ "${CI:-}" != "" ]]; then
+  echo -e "\n\nMangling homebrew in the CI to avoid conflicts."
+  /usr/bin/sudo mangle_homebrew
+  /usr/bin/sudo -k
+else
+  echo -e "\n\nNot mangling homebrew as we are not running in CI"
+fi
 
 echo -e "\n\nRunning the build setup script."
 source run_conda_forge_build_setup
@@ -52,7 +59,6 @@ conda $BUILD_CMD ./recipe -m ./.ci_support/${CONFIG}.yaml --suppress-variables -
 ( startgroup "Validating outputs" ) 2> /dev/null
 
 validate_recipe_outputs "${FEEDSTOCK_NAME}"
-endgroup "Validating outputs"
 
 ( endgroup "Validating outputs" ) 2> /dev/null
 
