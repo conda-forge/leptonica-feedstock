@@ -35,7 +35,7 @@ requirements:
     - m2-unzip  # [win]
     - vcpkg  # [win]
   host:
-    - giflib  # [not win]
+    - giflib
     - jpeg
     - libpng
     - libtiff
