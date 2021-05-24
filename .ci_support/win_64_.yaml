@@ -4,6 +4,8 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+giflib:
+- '5.2'
 jpeg:
 - '9'
 libpng:
