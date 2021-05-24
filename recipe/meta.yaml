@@ -10,8 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/DanBloomberg/{{ name }}/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - cmake.patch  # [win]
 
 build:
   number: 0
