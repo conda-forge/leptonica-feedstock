@@ -30,7 +30,7 @@ requirements:
     - libtool  # [not win]
     - m4  # [not win]
     - pkg-config  # [not win]
-    - cmake  # [win]
+    - cmake <=3.20.2  # [win]
     # latest build of 7.71.1 (build 6) is broken
     - curl <7.71.1  # [win]
     - m2-unzip  # [win]
