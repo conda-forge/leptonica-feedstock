@@ -7,6 +7,8 @@ if errorlevel 1 exit 1
 unzip sw-master-windows-client.zip -d .
 if errorlevel 1 exit 1
 
+set PATH=%PATH%;%CD%
+
 sw setup
 if errorlevel 1 exit 1
 
@@ -27,5 +29,5 @@ cmake --build . --config Release --target install
 if errorlevel 1 exit 1
 
 :: Make copies of the .lib file without the embedded version number
-copy %LIBRARY_LIB%\leptonica-1.80.0.lib %LIBRARY_LIB%\leptonica.lib
-copy %LIBRARY_LIB%\leptonica-1.80.0.lib %LIBRARY_LIB%\lept.lib
+copy %LIBRARY_LIB%\leptonica-1.80.1.lib %LIBRARY_LIB%\leptonica.lib
+copy %LIBRARY_LIB%\leptonica-1.80.1.lib %LIBRARY_LIB%\lept.lib
