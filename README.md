@@ -194,5 +194,4 @@ Feedstock Maintainers
 
 * [@CurtLH](https://github.com/CurtLH/)
 * [@izahn](https://github.com/izahn/)
-* [@xylar](https://github.com/xylar/)
 
