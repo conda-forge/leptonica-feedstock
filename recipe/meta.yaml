@@ -1,6 +1,6 @@
 {% set name = "leptonica" %}
-{% set version = "1.82.0" %}
-{% set sha256 = "155302ee914668c27b6fe3ca9ff2da63b245f6d62f3061c8f27563774b8ae2d6" %}
+{% set version = "1.78.0" %}
+{% set sha256 = "e2ed2e81e7a22ddf45d2c05f0bc8b9ae7450545d995bfe28517ba408d14a5a88" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
 
 build:
   number: 1
-  skip: true  # [win and vc<14]
+  skip: true  # [(not win) or vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
 
