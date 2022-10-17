@@ -3,7 +3,7 @@ BUILD:
 c_compiler:
 - gcc
 c_compiler_version:
-- '9'
+- '10'
 cdt_arch:
 - aarch64
 cdt_name:
@@ -25,23 +25,10 @@ libtiff:
 libwebp:
 - '1'
 openjpeg:
-- '2.4'
-pin_run_as_build:
-  jpeg:
-    max_pin: x
-  libpng:
-    max_pin: x.x
-  libtiff:
-    max_pin: x
-  openjpeg:
-    max_pin: x.x
-  xz:
-    max_pin: x.x
-  zlib:
-    max_pin: x.x
+- '2'
 target_platform:
 - linux-aarch64
 xz:
-- '5.2'
+- '5'
 zlib:
 - '1.2'
