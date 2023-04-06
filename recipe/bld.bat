@@ -4,7 +4,7 @@ cd build
 curl -fsSOL https://software-network.org/client/sw-master-windows_x86_64-client.zip
 if errorlevel 1 exit 1
 
-unzip sw-master-windows-client.zip -d .
+unzip sw-master-windows_x86_64-client.zip -d .
 if errorlevel 1 exit 1
 
 set PATH=%PATH%;%CD%
