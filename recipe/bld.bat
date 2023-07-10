@@ -12,13 +12,11 @@ set PATH=%PATH%;%CD%
 sw setup
 if errorlevel 1 exit 1
 
-cmake -G "Ninja" ^
-      -D CMAKE_BUILD_TYPE=Release ^
+cmake %CMAKE_ARGS% ^
       -D BUILD_PROG=1 ^
       -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -D CMAKE_INCLUDE_PATH=%LIBRARY_INC% ^
       -D CMAKE_LIBRARY_PATH=%LIBRARY_LIB% ^
-      -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D BUILD_SHARED_LIBS=ON ^
       -D CMAKE_MODULE_LINKER_FLAGS=-whole-archive ^
       ..
