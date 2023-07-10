@@ -12,7 +12,7 @@ set PATH=%PATH%;%CD%
 sw setup
 if errorlevel 1 exit 1
 
-cmake -G "NMake Makefiles" ^
+cmake -G "Ninja" ^
       -D CMAKE_BUILD_TYPE=Release ^
       -D BUILD_PROG=1 ^
       -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^

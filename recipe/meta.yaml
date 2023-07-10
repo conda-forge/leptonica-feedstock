@@ -34,6 +34,7 @@ requirements:
     # latest build of 7.71.1 (build 6) is broken
     - curl <7.71.1  # [win]
     - m2-unzip  # [win]
+    - ninja  # [win]
   host:
     - giflib  # [not win]
     - jpeg
