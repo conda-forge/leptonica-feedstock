@@ -14,7 +14,7 @@ source:
     - cmake.patch  # [win]
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -31,9 +31,6 @@ requirements:
     - m4  # [not win]
     - pkg-config  # [not win]
     - cmake  # [win]
-    # latest build of 7.71.1 (build 6) is broken
-    - curl <7.71.1  # [win]
-    - m2-unzip  # [win]
   host:
     - giflib  # [not win]
     - libjpeg-turbo
