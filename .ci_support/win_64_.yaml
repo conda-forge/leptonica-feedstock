@@ -1,5 +1,5 @@
 c_compiler:
-- vs2019
+- vs2022
 channel_sources:
 - conda-forge
 channel_targets:
@@ -9,7 +9,7 @@ jpeg:
 libpng:
 - '1.6'
 libtiff:
-- '4'
+- '4.5'
 libwebp:
 - '1'
 openjpeg:
