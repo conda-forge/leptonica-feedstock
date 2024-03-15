@@ -1,6 +1,6 @@
 {% set name = "leptonica" %}
-{% set version = "1.83.1" %}
-{% set sha256 = "8f18615e0743af7df7f50985c730dfcf0c93548073d1f56621e4156a8b54d3dd" %}
+{% set version = "1.84.1" %}
+{% set sha256 = "2b3e1254b1cca381e77c819b59ca99774ff43530209b9aeb511e1d46588a64f6" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
     - cmake.patch  # [win]
 
 build:
-  number: 5
+  number: 0
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
