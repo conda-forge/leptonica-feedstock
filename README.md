@@ -207,5 +207,6 @@ Feedstock Maintainers
 =====================
 
 * [@CurtLH](https://github.com/CurtLH/)
+* [@chrisdeutsch](https://github.com/chrisdeutsch/)
 * [@izahn](https://github.com/izahn/)
 
