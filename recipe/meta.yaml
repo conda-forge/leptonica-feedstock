@@ -14,7 +14,7 @@ source:
     - cmake.patch  # [win]
 
 build:
-  number: 5
+  number: 6
   skip: true  # [win and vc<14]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
@@ -24,6 +24,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - autoconf  # [not win]
     - automake  # [not win]
     - make  # [not win]
@@ -38,11 +39,8 @@ requirements:
     - libtiff
     - libwebp
     - openjpeg
-    - xz
+    - liblzma-devel
     - zlib
-  run:
-    # libwebp doesn't have run_exports yet (on version in conda-forge-pinning)
-    - libwebp
 
 test:
   commands:
@@ -65,3 +63,4 @@ extra:
   recipe-maintainers:
     - CurtLH
     - izahn
+    - chrisdeutsch
