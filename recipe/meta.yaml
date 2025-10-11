@@ -33,7 +33,7 @@ requirements:
     - pkg-config  # [not win]
     - cmake  # [win]
   host:
-    - giflib  # [not win]
+    - giflib
     - libjpeg-turbo
     - libpng
     - libtiff
