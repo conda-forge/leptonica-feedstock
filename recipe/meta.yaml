@@ -8,7 +8,7 @@ source:
   url: https://github.com/DanBloomberg/leptonica/releases/download/{{ version }}/leptonica-{{ version }}.tar.gz
   sha256: 1fa08e40bb37fd45802d5e6e7b43927449a5c47d4608ef99d3bd3f0fa76baedc
   patches:
-    - cmake.patch  # [win]
+    - patches/0001-point-to-our-own-prefix-in-CMake-metadata-on-windows.patch  # [win]
 
 build:
   number: 0

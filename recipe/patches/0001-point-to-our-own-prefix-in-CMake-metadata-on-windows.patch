@@ -1,0 +1,37 @@
+From 0c9aab448b3b8a84696cea9dafbb11ca4feaf424 Mon Sep 17 00:00:00 2001
+From: adbeda <adbedada@gmail.com>
+Date: Fri, 16 Aug 2019 13:12:23 -0400
+Subject: [PATCH] point to our own prefix in CMake metadata on windows
+
+---
+ cmake/templates/LeptonicaConfig.cmake.in | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/cmake/templates/LeptonicaConfig.cmake.in b/cmake/templates/LeptonicaConfig.cmake.in
+index cee3a0f2..c55ebf08 100644
+--- a/cmake/templates/LeptonicaConfig.cmake.in
++++ b/cmake/templates/LeptonicaConfig.cmake.in
+@@ -28,7 +28,9 @@ if (@LIBWEBP_SUPPORT@)
+     find_dependency(WebP @MINIMUM_WEBPMUX_VERSION@ CONFIG)
+ endif()
+ 
+-include(${CMAKE_CURRENT_LIST_DIR}/LeptonicaTargets.cmake)
++#include(${CMAKE_CURRENT_LIST_DIR}/LeptonicaTargets.cmake)
++
++get_filename_component(_leptonica_install_prefix "${CMAKE_CURRENT_LIST_DIR}/../../../" ABSOLUTE)
+ 
+ # ======================================================
+ #  Version variables:
+@@ -44,10 +46,10 @@ SET(Leptonica_VERSION_PATCH     @leptonica_VERSION_PATCH@)
+ # ======================================================
+ 
+ # Provide the include directories to the caller
+-set(Leptonica_INCLUDE_DIRS      "@INCLUDE_DIR@")
++set(Leptonica_INCLUDE_DIRS "${_leptonica_install_prefix}/include/leptonica/")
+ 
+ # ====================================================================
+ # Link libraries:
+ # ====================================================================
+ 
+-set(Leptonica_LIBRARIES         @leptonica_NAME@)
++set(Leptonica_LIBRARIES "${_leptonica_install_prefix}/lib/leptonica-@VERSION_PLAIN@.lib")
