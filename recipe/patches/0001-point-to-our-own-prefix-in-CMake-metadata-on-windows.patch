@@ -1,4 +1,4 @@
-From 0c9aab448b3b8a84696cea9dafbb11ca4feaf424 Mon Sep 17 00:00:00 2001
+From 63e6f6c1237335f1ad2b8244ca9b6b6a38d607b6 Mon Sep 17 00:00:00 2001
 From: adbeda <adbedada@gmail.com>
 Date: Fri, 16 Aug 2019 13:12:23 -0400
 Subject: [PATCH] point to our own prefix in CMake metadata on windows
@@ -8,7 +8,7 @@ Subject: [PATCH] point to our own prefix in CMake metadata on windows
  1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/cmake/templates/LeptonicaConfig.cmake.in b/cmake/templates/LeptonicaConfig.cmake.in
-index cee3a0f2..c55ebf08 100644
+index cee3a0f2..6799c7ca 100644
 --- a/cmake/templates/LeptonicaConfig.cmake.in
 +++ b/cmake/templates/LeptonicaConfig.cmake.in
 @@ -28,7 +28,9 @@ if (@LIBWEBP_SUPPORT@)
@@ -34,4 +34,4 @@ index cee3a0f2..c55ebf08 100644
  # ====================================================================
  
 -set(Leptonica_LIBRARIES         @leptonica_NAME@)
-+set(Leptonica_LIBRARIES "${_leptonica_install_prefix}/lib/leptonica-@VERSION_PLAIN@.lib")
++set(Leptonica_LIBRARIES "${_leptonica_install_prefix}/lib/leptonica-${Leptonica_VERSION}.lib")

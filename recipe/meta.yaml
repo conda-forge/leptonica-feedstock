@@ -11,7 +11,7 @@ source:
     - patches/0001-point-to-our-own-prefix-in-CMake-metadata-on-windows.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage("leptonica", max_pin='x.x') }}
 
@@ -39,8 +39,22 @@ requirements:
     - zlib
 
 test:
+  requires:
+    # cmake needs a compiler to run package detection
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - ninja
+    - pkg-config
+  files:
+    - cmake_test/
   commands:
     - convertfilestopdf --help 2>&1 | grep 'resolution' &> /dev/null  # [not win]
+    # we don't actually have CMake metadata on unix, due to building with autotools;
+    # test that CMake+pkgconfig works though
+    - cd cmake_test
+    - cmake -GNinja -DCMAKE_CXX_STANDARD=17 $CMAKE_ARGS .   # [unix]
+    - cmake -GNinja -DCMAKE_CXX_STANDARD=17 %CMAKE_ARGS% .  # [win]
 
 about:
   home: https://github.com/DanBloomberg/leptonica
