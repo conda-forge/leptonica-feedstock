@@ -6,6 +6,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+giflib:
+- '5.2'
 libjpeg_turbo:
 - '3'
 liblzma_devel:
@@ -20,7 +22,5 @@ openjpeg:
 - '2'
 target_platform:
 - win-64
-vc:
-- '14'
 zlib:
 - '1'
