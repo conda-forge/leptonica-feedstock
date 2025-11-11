@@ -1,15 +1,12 @@
-{% set name = "leptonica" %}
 {% set version = "1.86.0" %}
-{% set sha256 = "1fa08e40bb37fd45802d5e6e7b43927449a5c47d4608ef99d3bd3f0fa76baedc" %}
 
 package:
-  name: {{ name|lower }}
+  name: leptonica
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/DanBloomberg/{{ name }}/releases/download/{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/DanBloomberg/leptonica/releases/download/{{ version }}/leptonica-{{ version }}.tar.gz
+  sha256: 1fa08e40bb37fd45802d5e6e7b43927449a5c47d4608ef99d3bd3f0fa76baedc
   patches:
     - cmake.patch  # [win]
 
@@ -17,7 +14,7 @@ build:
   number: 0
   skip: true  # [win and vc<14]
   run_exports:
-    - {{ pin_subpackage(name, max_pin='x.x') }}
+    - {{ pin_subpackage("leptonica", max_pin='x.x') }}
 
 # TODO: conda-forge giflib missing headers on windows?
 
