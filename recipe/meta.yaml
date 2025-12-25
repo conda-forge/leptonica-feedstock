@@ -1,4 +1,4 @@
-{% set version = "1.86.0" %}
+{% set version = "1.87.0" %}
 
 package:
   name: leptonica
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://github.com/DanBloomberg/leptonica/releases/download/{{ version }}/leptonica-{{ version }}.tar.gz
-  sha256: 1fa08e40bb37fd45802d5e6e7b43927449a5c47d4608ef99d3bd3f0fa76baedc
+  sha256: c73363397f96eb1295602bf44d708a994ad42046c791bf03ea0505d829bdb6a7
   patches:
     - patches/0001-point-to-our-own-prefix-in-CMake-metadata-on-windows.patch  # [win]
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage("leptonica", max_pin='x.x') }}
 
