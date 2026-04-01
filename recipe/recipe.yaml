@@ -1,0 +1,87 @@
+# TODO: conda-forge giflib missing headers on windows?
+schema_version: 1
+
+context:
+  version: "1.87.0"
+
+package:
+  name: leptonica
+  version: ${{ version }}
+
+source:
+  url: https://github.com/DanBloomberg/leptonica/releases/download/${{ version }}/leptonica-${{ version }}.tar.gz
+  sha256: c73363397f96eb1295602bf44d708a994ad42046c791bf03ea0505d829bdb6a7
+  patches:
+    - if: win
+      then: patches/0001-point-to-our-own-prefix-in-CMake-metadata-on-windows.patch
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - if: not win
+      then: autoconf
+    - if: not win
+      then: automake
+    - if: not win
+      then: make
+    - if: not win
+      then: libtool
+    - if: not win
+      then: m4
+    - if: not win
+      then: pkg-config
+    - if: win
+      then: cmake
+  host:
+    - giflib
+    - libjpeg-turbo
+    - libpng
+    - libtiff
+    - libwebp
+    - openjpeg
+    - liblzma-devel
+    - zlib
+  run_exports:
+    - ${{ pin_subpackage("leptonica", upper_bound='x.x') }}
+
+tests:
+  - files:
+      recipe:
+        - cmake_test/
+    requirements:
+      run:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - cmake
+        - ninja
+        - pkg-config
+    script:
+      - if: not win
+        then: convertfilestopdf --help 2>&1 | grep 'resolution' &> /dev/null
+      - cd cmake_test
+      - if: unix
+        then: cmake -GNinja -DCMAKE_CXX_STANDARD=17 $CMAKE_ARGS .
+      - if: win
+        then: cmake -GNinja -DCMAKE_CXX_STANDARD=17 %CMAKE_ARGS% .
+
+about:
+  license: BSD-2-Clause
+  license_file: leptonica-license.txt
+  summary: Useful for image processing and image analysis applications
+  description: |
+    Leptonica is a pedagogically-oriented open source site containing
+    software that is broadly useful for image processing and image
+    analysis applications.
+  homepage: https://github.com/DanBloomberg/leptonica
+  repository: https://github.com/DanBloomberg/leptonica
+  documentation: http://www.leptonica.org/
+
+extra:
+  recipe-maintainers:
+    - CurtLH
+    - izahn
+    - chrisdeutsch
