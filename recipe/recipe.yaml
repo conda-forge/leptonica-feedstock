@@ -59,10 +59,6 @@ tests:
         - converttopdf
         - converttops
         - fileinfo
-        - printimage
-        - printsplitimage
-        - printtiff
-        - splitimage2pdf
         - xtractprotos
   - files:
       recipe:
