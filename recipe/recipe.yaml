@@ -49,6 +49,21 @@ requirements:
     - ${{ pin_subpackage("leptonica", upper_bound='x.x') }}
 
 tests:
+  - package_contents:
+      bin:
+        - convertfilestopdf
+        - convertfilestops
+        - convertformat
+        - convertsegfilestopdf
+        - convertsegfilestops
+        - converttopdf
+        - converttops
+        - fileinfo
+        - printimage
+        - printsplitimage
+        - printtiff
+        - splitimage2pdf
+        - xtractprotos
   - files:
       recipe:
         - cmake_test/
@@ -60,8 +75,6 @@ tests:
         - ninja
         - pkg-config
     script:
-      - if: not win
-        then: convertfilestopdf --help 2>&1 | grep 'resolution' &> /dev/null
       - cd cmake_test
       - if: unix
         then: cmake -GNinja -DCMAKE_CXX_STANDARD=17 $CMAKE_ARGS .
