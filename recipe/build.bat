@@ -19,9 +19,3 @@ if errorlevel 1 exit 1
 
 cmake --build . --config Release --target install
 if errorlevel 1 exit 1
-
-:: Create symlinks to the .lib file without the embedded version number
-mklink %LIBRARY_LIB%\leptonica.lib %LIBRARY_LIB%\leptonica-%PKG_VERSION%.lib
-if errorlevel 1 exit 1
-mklink %LIBRARY_LIB%\lept.lib %LIBRARY_LIB%\leptonica-%PKG_VERSION%.lib
-if errorlevel 1 exit 1
