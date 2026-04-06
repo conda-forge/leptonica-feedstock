@@ -17,7 +17,6 @@ Leptonica is a pedagogically-oriented open source site containing
 software that is broadly useful for image processing and image
 analysis applications.
 
-
 Current build status
 ====================
 
